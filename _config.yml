@@ -1,0 +1,11 @@
+name: Erik M. Ferragut
+description: Mathematician
+
+url: "http://localhost:4002"
+
+paginate: 10
+
+markdown: rdiscount
+permalink: pretty
+pygments: true
+

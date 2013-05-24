@@ -1,0 +1,113 @@
+---
+layout: default
+---
+<div class="row-fluid">
+<h3>Erik M. Ferragut</h3>
+</div>
+
+<div class="row-fluid">
+<div class="span4">
+<h4>Mathematician</h4>
+<ul class="unstyled">
+<li>Oak Ridge National Laboratory</li>
+<li>P.O. Box 2008 MS6418</li>
+<li>Oak Ridge, TN 37831-6418</li>
+<li>ferragutem (at) ornl (dot) gov</li>
+<li>865.574.9389</li>
+</ul>
+</div>
+
+<div class="span4">
+  <img src="/img/face.jpg" alt="Photograph of Me" />
+  </div>
+</div>
+<div class="row-fluid">
+
+{% comment %}
+  Figure out if there is any news.
+{% endcomment %}
+{% assign anynews = false %}
+{% for post in site.posts %}
+  {% if post.news == true %}
+  {% assign anynews = true %}
+  {% endif %}
+{% endfor %}
+
+{% if anynews == true %}  
+<div class="span8">
+<h4>Recent News</h4>
+<dl class='dl-horizontal'>
+  {% for post in site.posts %}
+  {% if post.news == true %}
+  <dt>{{ post.date | date_to_long_string }}</dt>
+  <dd>{{ post.title }}</dd>
+  {% endif %}
+  {% endfor %}
+</dl>
+</div>
+{% endif %}
+
+{% comment %} put list here of things like latest talk, publication,
+committee, travel, visible demo, github code release.  (Can we list
+last 5 posts that have been tagged with 'news'?)  {% endcomment %}
+
+</div>
+<div class="row-fluid">
+<div class="span8">
+
+<h4>Research Interests</h4> My primary interest is in the application
+of probabilistic modeling to problems in unsupervised machine
+learning.  This has generally focused on large scale anomaly
+detection.  In addition to anomaly detection, I am currently working
+on probabilistic schema matching, resilient control theory, quantum
+computation, and, you know, whatever. </div>
+
+</div>
+<div class="row-fluid">
+<div class="span8">
+  <h4>Bio</h4>
+  Where I've worked; other areas I've worked on; I now live in
+  Tennessee with my family.
+</div>
+
+</div>
+
+<div class="row-fluid">
+<h4>Elsewhere on the Web</h4>
+<div class="span2"><a href="http://github.com/?erikferragut">GitHub</a></div>
+<div class="span2"><a href="http://www.linkedin.com/pub/erik-ferragut/14/60a/63a">LinkedIn</a></li></div>
+<div class="span2"><a
+  href="http://scholar.google.com/citations?user=gnuek80AAAAJ">Google
+  Scholar</a></div>
+<div class="span2"><a
+  href="http://academic.research.microsoft.com/Author/8972519/erik-m-ferragut">Microsoft Academic</a></div>
+<div class="span2"><a
+  href="http://genealogy.math.ndsu.nodak.edu/id.php?id=100267">Math Geneology</a></div>
+
+</div>
+
+<div class="row-fluid">
+<div class="span8">
+
+<h4>In the ORNL hierarchy, I am in...</h4>
+<ul class="unstyled">
+  <li>Situation Awareness and Visual Analytics (SAVA) Team, within</li>
+  <li><a href="http://www.ioc.ornl.gov/">Cyberspace Sciences and
+  Information Intelligence Research (CSIIR) Group</a>, within</li>
+  <li><a href="http://computing.ornl.gov/cse/">Computational Sciences and Engineering (CSE) Division</a>, within</li>
+  <li><a href="http://computing.ornl.gov/">Computing and Computational Sciences (CCS) Directorate</a>,  within</li>
+  <li><a href="http://www.ornl.gov">Oak Ridge National Laboratory
+  (ORNL)</a>,</li>
+  <li>a <a href="http://www.doe.gov">Department of Energy Laboratory</a></li>
+</ul>
+(make these links)  Describe secondary roles as Cyber Defenders Team
+lead, head of the Cyber Security Institute, and (eventually) joint
+faculty appointment(s).
+</div>
+</div>
+
+<div class="span8">
+<br />  </div>
+</div>
+
+

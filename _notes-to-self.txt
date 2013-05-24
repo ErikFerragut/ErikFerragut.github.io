@@ -1,0 +1,22 @@
+
+To create bibtex follow instructions from
+
+http://stackoverflow.com/questions/13545725/automatically-create-citations-list-for-personal-academic-site-from-bibtex
+
+You can use pandoc's own citation support for this. Create a markdown file along the following lines:
+
+# Peer-reviewed papers
+
+1. [@me2001]
+2. [@me2002]
+
+# Non-peer-reviewed papers
+
+1. [@me1999]
+2. [@me1998]
+
+where me1999 etc are the keys in your bibtex file. Then find or create a CSL file that formats the citations in the way you would like, and process with pandoc:
+
+pandoc --bibliography mybiblio.bib --csl mycsl.csl -o citations.html -s citations.txt
+
+Or you can add -t markdown and get a markdown version if you wish.
