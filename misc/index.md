@@ -1,5 +1,7 @@
 ---
 layout: default
+headline: Some other things you or I might find useful.
+title: Erik M. Ferragut | Miscellaneous
 ---
 <div class="row-fluid">
 <div class="span8">
