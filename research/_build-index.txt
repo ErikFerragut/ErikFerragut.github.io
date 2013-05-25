@@ -1,0 +1,1 @@
+pandoc --bibliography _citations.bib --csl _springer-mathphys-author-date.csl -t markdown -o index.html -s index.md

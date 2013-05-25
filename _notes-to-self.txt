@@ -20,3 +20,7 @@ where me1999 etc are the keys in your bibtex file. Then find or create a CSL fil
 pandoc --bibliography mybiblio.bib --csl mycsl.csl -o citations.html -s citations.txt
 
 Or you can add -t markdown and get a markdown version if you wish.
+
+pandoc --bibliography ../_citations.bib --csl ../_springer-mathphys-author-date.csl -t markdown -o index.html -s _index.md
+
+pandoc --bibliography ../_citations.bib --csl ../_acm_sig_proceedings.csl -t markdown -o index.md -s _index.md
