@@ -34,4 +34,12 @@ title: Erik M. Ferragut | Miscellaneous
 </ul>
 </div>
 
+<div class="span8">
+<h4>Useful Apps and Tools</h4>
+<ul>
+<li><a href="http://www.readability.com/">Readability</a> and <a href="">Pocket</a> for preparing web pages for off-line reading on your smart phone.</li>
+<li><a href="https://www.goodreads.com/">Good Reads</a></li>
+</ul>
+</div>
+
 </div>
