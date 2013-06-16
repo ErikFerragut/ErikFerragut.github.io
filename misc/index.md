@@ -18,6 +18,7 @@ title: Erik M. Ferragut | Miscellaneous
 </ul>
 </div>
 
+{% comment %}
 <div class="span8">
 <h4>Colleagues</h4>
 <ul>
@@ -26,19 +27,24 @@ title: Erik M. Ferragut | Miscellaneous
 <li><a href="http://web.eecs.utk.edu/~langston/">Michael A. Langston</a>, UTK</li>
 </ul>
 </div>
+{% endcomment %}
 
 <div class="span8">
 <h4>Favorite Math Sites</h4>
 <ul>
 <li><a href="http://terrytao.wordpress.com/">Terry Tao's blog</a></li>
+<li><a href="http://www.mathblogging.org/">Mathblogging.org</a></li>
+<li><a href="http://www.ams.org/">American Mathematical Society</a>, including <a href="http://www.ams.org/blog/phdplus/">Ph.D. + \(\epsilon\)</a></li>
 </ul>
 </div>
 
 <div class="span8">
 <h4>Useful Apps and Tools</h4>
 <ul>
-<li><a href="http://www.readability.com/">Readability</a> and <a href="">Pocket</a> for preparing web pages for off-line reading on your smart phone.</li>
-<li><a href="https://www.goodreads.com/">Good Reads</a></li>
+<li><a href="http://www.readability.com/">Readability</a> for preparing web pages for off-line and smart-phone reading</li>
+<li><a href="https://www.goodreads.com/">Good Reads</a> for tracking all the books you might someday read</li>
+<li><a href="http://mgsd.tiddlyspot.com/#mGSD">mGSD</a> for Getting Things Done using a fully in-browser wiki</li>
+<li><a href="http://www.mathjax.org/">Math Jax</a> for plugin-free javascript-based math markup on the web</li>
 </ul>
 </div>
 

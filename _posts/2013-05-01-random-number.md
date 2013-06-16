@@ -1,6 +1,7 @@
 ---
 title: Random numbers are cool
 layout: default
+published: false
 news: false
 ---
 # welcome
