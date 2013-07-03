@@ -10,10 +10,10 @@ Laska on foundational definitions was accepted at the International
 Symposium on Resilient Control Systems (<a
 href="https://www.ieee.org/conferences_events/conferences/conferencedetails/index.html?Conf_ID=30909">ISRCS
 2013</a>).  In the paper, we make rigorous the commonly accepted
-non-rigorous definition of a resilient system as one that "maintains
+non-rigorous definition of a resilient system as one that maintains
 state awareness and and acceptable level of operational normalcy in
 response to disturbances including threats of an unexpected and
-malicious nature" [1].  We do this by mathematically defining
+malicious nature [1].  We do this by mathematically defining
 resilience in terms of state awareness and operational normalcy.</p>
 
 <p>[1] C. G. Rieger, D. I. Gertman, and M. A. McQueen, "Resilient
