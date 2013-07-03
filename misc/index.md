@@ -30,11 +30,12 @@ title: Erik M. Ferragut | Miscellaneous
 {% endcomment %}
 
 <div class="span8">
-<h4>Favorite Math Sites</h4>
+<h4>Favorite Math and ML Sites</h4>
 <ul>
 <li><a href="http://terrytao.wordpress.com/">Terry Tao's blog</a></li>
 <li><a href="http://www.mathblogging.org/">Mathblogging.org</a></li>
 <li><a href="http://www.ams.org/">American Mathematical Society</a>, including <a href="http://www.ams.org/blog/phdplus/">Ph.D. + \(\epsilon\)</a></li>
+<li><a href="http://hunch.net/</a>hunch.net</a></li>
 </ul>
 </div>
 
