@@ -1,5 +1,5 @@
 ---
-title: Talk Approved at AMS Southeastern Sectional October Meeting in Louiville, KY
+title: Talk Approved at AMS Southeastern Sectional Fall 2013 Meeting
 headline: Recent post
 news: true
 layout: post
