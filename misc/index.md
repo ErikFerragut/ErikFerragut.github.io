@@ -35,7 +35,7 @@ title: Erik M. Ferragut | Miscellaneous
 <li><a href="http://terrytao.wordpress.com/">Terry Tao's blog</a></li>
 <li><a href="http://www.mathblogging.org/">Mathblogging.org</a></li>
 <li><a href="http://www.ams.org/">American Mathematical Society</a>, including <a href="http://www.ams.org/blog/phdplus/">Ph.D. + \(\epsilon\)</a></li>
-<li><a href="http://hunch.net/</a>hunch.net</a></li>
+<li><a href="http://hunch.net/">hunch.net</a></li>
 </ul>
 </div>
 

@@ -35,7 +35,7 @@ v-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">I have done research in probability modeling, anomaly detection, and other areas.
+          <a class="brand" href="#">Research in probability modeling, anomaly detection, and other areas.
 	  </a>
 <!--          <div class="nav-collapse collapse">
             <ul class="nav">
@@ -57,7 +57,7 @@ v-collapse">
   <li><a href="/ferragut_cv.pdf">Curriculum Vitae</a></li>
   <li><a href="/cyber-security-institute">Student
   Opportunities</a></li>
-  <li><a href="/posts">Posts</a></li>
+  <li><a href="/posts">News and Posts</a></li>
   <li><a href="/misc/">Miscellaneous</a></li>
   <li>See also:<br />&nbsp;&nbsp;&nbsp;<a href="http://www.linkedin.com/pub/erik-ferragut/14/60a/63a"
   title="Erik M. Ferragut on LinkedIn">LinkedIn</i></a>
@@ -68,73 +68,26 @@ v-collapse">
 
   </div>
   <div class= "span9" >
-    <ol>
-<li> Abercrombie, R.K., Ferragut, E.M., Boone, S.: Hidden Markov Modeling
-for Weigh-In-Motion Estimation. (2012a).</li>
+    <p>This is a great time to be working in machine learning and cyber security.  There are a lot of important operational problems in cyber security that could benefit from mathematical reasoning and machine learning approaches, except that they are not yet sufficiently well posed.  A good way to pose the problem will lead to useful solutions and new theory.</p>
 
-<li> Abercrombie, R.K., Ferragut, E.M., Sheldon, F.T., Grimaila, M.R.:
-Addressing the Need for Independence in the CSE Model. Computational
-Intelligence in Cyber Security (CICS), 2011 IEEE Symposium on. pp.
-68–75. IEEE (2011).</li>
+<p>I like to draw on methods from probabilistic modeling, Bayesian inference, and machine learning.  It's also fun to be able to draw on pure and applied mathematics, such as graph theory, combinatorial commutative algebra, representation theory, group theory, and computational topology.  The two great benefits of doing this are (1) the application of new, enriching methods to existing problems, and (2) the re-invigoration of a theoretical subject with operationally motivated problems.   Here's a few areas I've been working on.  See my CV (linked to in the sidebar) for references to papers in these areas.</p>
 
-<li> Abercrombie, R.K., Sheldon, F., Ferragut, E.M.: CYBERSPACE SECURITY
-SYSTEM, (2012b).</li>
+<h3>Anomaly Detection</h3>
 
-<li> Czejdo, B., Bhattacharya, S., Ferragut, E.: Query Processing for
-Probabilistic State Diagrams Describing Multiple Robot Navigation in an
-Indoor Environment. International Journal of Digital Information and
-Wireless Communications (IJDIWC). 1, 516–535 (2012a).</li>
+<p>What is an anomaly?  This is as much a philosophical question as a machine learning question.  My view is that one well founded way to define anomalies is as unusual events.  (Another good approach would be in terms of deviations from a specificaiton.)  A lot of research has defined anomalies in terms of the rarity of an event.  However, sampling from a collection of one million equally likely events, it is a guarantee that the result will have probability one in a million.  Is every event then anomalous?  In my previous work, I've argued that the anomalousness of an event must take into account the entire distribution and give a (p)-value of the probability of the event.  This can be generalized to discrete, continuous, and hybrid distributions.  It can be shown that this perspective has important operational benefits in terms of being able to regulate false positives and compare between different anomaly detectors.</p>
 
-<li> Czejdo, B.D., Ferragut, E.M., Goodall, J.R., Laska, J.: Network
-Intrusion Detection and Visualization Using Aggregations in a Cyber
-Security Data Warehouse. Int’l J. of Communications, Network and System
-Sciences. 5, 593–602 (2012a).</li>
+<h3>Large Data Machine Learning</h3>
 
-<li> Czejdo, B.D., Ferragut, E.M., Goodall, J.R., Laska, J., Burrell, A.T.,
-Papantoni-Kazakos, P.: Scientific Research.</li>
+<p>Machine learning algorithms tend to give a similar answer for subsets of data as they give for the entire data set, although with less precision.  However, the algorithms run faster on smaller data sets.  I've looked into ways of using classifiers learned on subsets to estimate or create a classifier for the whole data set.  In the case of Support Vector Machines, there are special properties of support vectors that help facilitate this.  This can be viewed as an inference problem: is a vector a support vector for the whole data set given the results of the subset classifiers?</p>
 
-<li> Ferragut, E., Braden, N.: System log summarization via semi-Markov
-models of inter-arrival times. Proceedings of the Seventh Annual
-Workshop on Cyber Security and Information Intelligence Research. p. 44.
-ACM (2011).</li>
+<h3>Cyber Physical Security</h3>
 
-<li> Ferragut, E.M.: Detection of epistatic effects in genetic data.
-University of Michigan. (2003).</li>
+<p>Control theory provides a large body of knowledge on creating and analyzing control systems in the presence of noise, failures, and other changes.  To what extent do targeted intelligent attacks require the development of new, improved methods of analysis?  One difference is in distinguishing between random failures and targeted attacks.  To some extent, robust control theory addresses this issue when it considers worst-case analysis.  Moreover, if the defender and the attacker are both free to make tactical decisions, then a game-theoretic analysis will play an important role.  Concepts of resilience based on controllability and observability can be viewed in terms of the algebraic and combinatorial properties of the matrices that define the (linear) control system.</p>
 
-<li> Ferragut, E.M.: A dynamic erasure code for multicasting live data.
-Proceedings of the 5th Annual Workshop on Cyber Security and Information
-Intelligence Research: Cyber Security and Information Intelligence
-Challenges and Strategies. p. 65. ACM (2009).</li>
+<h3>Cyber Security Analysis</h3>
 
-<li> Ferragut, E.M., Darmon, D.M., Shue, C.A., Kelley, S.: Automatic
-construction of anomaly detectors from graphical models. Computational
-Intelligence in Cyber Security (CICS), 2011 IEEE Symposium on. pp. 9–16.
-IEEE (2011).</li>
+<p>Since cyber conflicts involve two or more adversarial parties, it makes sense to view the conflict in terms of a (mathematical) game.  However, the theory to do so is still very elementary and not appropriate for realistic scenarios.  I have developed a framework for representing "the game", including the status of the board and the available moves.  Additional research is required to build a board based on real-world assets and data, and to develop the game theory appropriate to this application.</p>
 
-<li> Ferragut, E.M., Laska, J.: Randomized Sampling for Large Data
-Applications of SVM. Machine Learning and Applications (ICMLA), 2012
-11th International Conference on. pp. 350–355. IEEE (2012).</li>
-
-<li> Ferragut, E.M., Laska, J., Bridges, R.A.: A New, Principled Approach to
-Anomaly Detection. Machine Learning and Applications (ICMLA), 2012 11th
-International Conference on. pp. 210–215. IEEE (2012).</li>
-
-<li> Ferragut, E.M., Laska, J.A., Melin, A.M., Czejdo, B.: Addressing the
-Challenges of Anomaly Detection for Cyber Physical Energy Grid Systems.
-(2013).</li>
-
-<li> Harrison, L., Laska, J., Spahn, R., Iannacone, M., Downing, E.,
-Ferragut, E.M., Goodall, J.R.: situ: Situational understanding and
-discovery for cyber attacks. Visual Analytics Science and Technology
-(VAST), 2012 IEEE Conference on. pp. 307–308. IEEE (2012).</li>
-
-<li> Shue, C.A., Ferragut, E.M.: Dead Phish: An Examination of Deactivated
-Phishing Sites. (2010).</li>
-
-<li> Zakrzewska, A.N., Ferragut, E.M.: Modeling cyber conflicts using an
-extended petri net formalism. Computational Intelligence in Cyber
-Security (CICS), 2011 IEEE Symposium on. pp. 60–67. IEEE (2011).</li>
-</ol>
   </div>
 </div>
 
