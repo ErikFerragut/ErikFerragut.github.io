@@ -41,7 +41,8 @@ headline: I am a cyber security researcher at the Oak Ridge National Laboratory.
      adversaries.  I am interested in developing new algorithms that
      exploit the particulars of cyber problems to improve defensive
      and offensive capabilities.  My recent focus has been on
-     situation awareness from network sensor data.</p>
+    situation awareness from network sensor data and protection of
+    the power grid.</p>
 
      <p>I have been at ORNL since 2009.  In addition to being a
     research scientist, I am also the team lead for
@@ -59,17 +60,20 @@ headline: I am a cyber security researcher at the Oak Ridge National Laboratory.
   
 {% comment %}
   Figure out if there is any news.
-{% endcomment %}
+    {% endcomment %}
 {% assign anynews = false %}
 {% for post in site.posts %}
   {% if post.news == true %}
   {% assign anynews = true %}
   {% endif %}
-{% endfor %}
+    {% endfor %}
+
 
 {% comment %} put list here of things like latest talk, publication,
 committee, travel, visible demo, github code release.  (Can we list
-last 5 posts that have been tagged with 'news'?)  {% endcomment %}
+    last 5 posts that have been tagged with 'news'?)  {% endcomment %}
+
+    {% comment %}
 
 {% if anynews == true %}  
 <div class="span9">
@@ -85,10 +89,11 @@ last 5 posts that have been tagged with 'news'?)  {% endcomment %}
 </div>
 {% endif %}
 
-
 </div>
 <div class="row-fluid">
 <div class="span9">
+  
+{% endcomment %}
 
 <h4>Research Interests</h4> <p> My research focus is in improving the
 security and dependability of network, computer, and cyber-physical
