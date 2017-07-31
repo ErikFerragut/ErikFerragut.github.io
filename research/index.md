@@ -85,7 +85,7 @@ The hope is to have a simple syntax for the various steps to enable a wide range
 
 ### Defining Anomaly Detection ###
 
-Anomaly detection is the attempt to find outliers. On the one hand, you can think of it as finding points that are far from the concentrations of probability. On the other hand, you can think of it as finding points that have low probability density. I have adopted and argued for the second approach. In particular, given a probability measure <div>\(p\)</div>, we define a tail probability <div>\(T(x)\)</div> of a point <div>\(x\)</div> to be:
+Anomaly detection is the attempt to find outliers. On the one hand, you can think of it as finding points that are far from the concentrations of probability. On the other hand, you can think of it as finding points that have low probability density. I have adopted and argued for the second approach. In particular, given a probability measure \\(p\\), we define a tail probability \\(T(x)\\) of a point \\(x\\) to be:
 
 <div>
 \[
@@ -93,13 +93,13 @@ Anomaly detection is the attempt to find outliers. On the one hand, you can thin
 \]
 </div>
 
-the probability of the measure <div>\(p\)</div> generating an event that is no more likely than <div>\(x\)</div> (where <div>\(dp(x)\)</div> is the derivative of <div>\(p\)</div> with respect to some background measure, in the Radon-Nikodym sense).  This is not the only way to define a tail probability. To be more specific, we can call it *meta-rarity* because it is a number indicating the rarity of the rarity. This definition has a number of advantages, such as allowing for the regulation of alerts that are generated according to <div>\(p\)</div>. Another advantage is that since the tail probabilities is a sort of p-value (as in statistical significance), tail probabilities derived from different distributions are directly comparable, even if the underlying data are vastly different.
+the probability of the measure \\(p\\) generating an event that is no more likely than \\(x\\) (where \\(dp(x)\\) is the derivative of \\(p\\) with respect to some background measure, in the Radon-Nikodym sense).  This is not the only way to define a tail probability. To be more specific, we can call it *meta-rarity* because it is a number indicating the rarity of the rarity. This definition has a number of advantages, such as allowing for the regulation of alerts that are generated according to \\(p\\). Another advantage is that since the tail probabilities is a sort of p-value (as in statistical significance), tail probabilities derived from different distributions are directly comparable, even if the underlying data are vastly different.
 
 [Paper: *EM Ferragut*, J Laska, RA Bridges, "A new, principled approach to anomaly detection," International Conference on Machine Learning and Applications (ICMLA), 2012.](http://erikferragut.me/files/ferragut2012new.pdf)
 
 ### Meta-Rarity Is Optimal ###
 
-The definition of tail probabilities given above has another advantage. If it is the case that your data are being generated according to </div>\(p\)</div>, then it is the best way to distinguish it from data that is generated uniformly over the same space. The mathematical details of this statement require a lot of explanation, which is being written up in a paper. One way to think of it is as a variation of the Neyman-Pearson Lemma where one of the probability distributions is replaced with a (not necessarily finite) measure. (Paper in progress)
+The definition of tail probabilities given above has another advantage. If it is the case that your data are being generated according to \\(p\\), then it is the best way to distinguish it from data that is generated uniformly over the same space. The mathematical details of this statement require a lot of explanation, which is being written up in a paper. One way to think of it is as a variation of the Neyman-Pearson Lemma where one of the probability distributions is replaced with a (not necessarily finite) measure. (Paper in progress)
 
 ### Scalable Models ###
 
@@ -127,7 +127,7 @@ In more general distributions, computing tail probabilities has no closed form s
 
 ### Change Point Detection ###
 
-One interesting observation about tail probabilities is that they are approximately uniformly distributed, differing from uniform only when there are sets of positive measure that have constant probability density (i.e., level sets of positive probability). This observation enables a method to measure the extent to which the underlying distribution <div>\\(p\\)</div> actually matches how the data are generated. If the tail probabilities are uniformly distributed, then the assumption is supported. If the probabilities deviate from a uniform distribution, then the assumption must be rejected. We intend to integrate this into our anomaly detection system, Situ. (Paper in progress)
+One interesting observation about tail probabilities is that they are approximately uniformly distributed, differing from uniform only when there are sets of positive measure that have constant probability density (i.e., level sets of positive probability). This observation enables a method to measure the extent to which the underlying distribution \\(p\\) actually matches how the data are generated. If the tail probabilities are uniformly distributed, then the assumption is supported. If the probabilities deviate from a uniform distribution, then the assumption must be rejected. We intend to integrate this into our anomaly detection system, Situ. (Paper in progress)
 
 
 ## Game Theory ##
