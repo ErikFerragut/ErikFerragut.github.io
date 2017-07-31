@@ -44,7 +44,7 @@ ORNL has extensive expertise in developing and validating complex simulations. T
 
 In a physical system, such as a power grid, there are often many sensors with views into the same physical state. Inevitably, these sensors must then have some dependencies. In the case of power grid measurements, current and voltage are related by Kirchhoff's Laws. In this research we attempt to learn those relationships using machine learning (neural networks) and then use that model to detect data that has been tampered with, either because of component failure or because of malicious intent. A demonstration of the detection was developed. The trained algorithm was able to improve detection of replay attacks by a factor of 30 or more on both simulated and real data.
 
-[POWER POINT SLIDES: *Erik M. Ferragut*, Jason Laska, "Cyber Physical Attack Detection," Presentation, May 2017.](http://erikferragut.me/files/ttp-cpad-4-2017May.pptx)
+[PowerPoint Slides: *Erik M. Ferragut*, Jason Laska, "Cyber Physical Attack Detection," Presentation, May 2017.](http://erikferragut.me/files/ttp-cpad-4-2017May.pptx)
 
 ### Validation Across Thousands of Simulated Systems ###
 
@@ -65,7 +65,7 @@ Our approach was to create a generate non-parametric probabilistic model for eac
 
 To match two databases, a number of types of models are constructed for each field of each database, and then the rule is applied to produce match scores between all possible matches. In a proof-of-concept analysis, matches were found that seemed incorrect because of the given field names but that were in fact correct due to the actual usage of the fields.
 
-[PAPER: *Erik Ferragut*, Jason Laska, "Nonparametric Bayesian Modeling for Automated Database Schema Matching," International Conference on Machine Learning and Applications, December 2015.](http://erikferragut.me/files/ferragut2015nonparametric.pdf)
+[Paper: *Erik Ferragut*, Jason Laska, "Nonparametric Bayesian Modeling for Automated Database Schema Matching," International Conference on Machine Learning and Applications, December 2015.](http://erikferragut.me/files/ferragut2015nonparametric.pdf)
 
 ### Data Pre-Processing (ORDEAL) ###
 
@@ -85,7 +85,7 @@ The hope is to have a simple syntax for the various steps to enable a wide range
 
 ### Defining Anomaly Detection ###
 
-Anomaly detection is the attempt to find outliers. On the one hand, you can think of it as finding points that are far from the concentrations of probability. On the other hand, you can think of it as finding points that have low probability density. I have adopted and argued for the second approach. In particular, given a probability measure <span>$p$</span>, we define a tail probability <span>$T(x)$</span> of a point <span>$x$</span> to be:
+Anomaly detection is the attempt to find outliers. On the one hand, you can think of it as finding points that are far from the concentrations of probability. On the other hand, you can think of it as finding points that have low probability density. I have adopted and argued for the second approach. In particular, given a probability measure <div>\(p\)</div>, we define a tail probability <div>\(T(x)\)</div> of a point <div>\(x\)</div> to be:
 
 <div>
 \[
@@ -93,30 +93,30 @@ Anomaly detection is the attempt to find outliers. On the one hand, you can thin
 \]
 </div>
 
-the probability of the measure <span>$p$</span> generating an event that is no more likely than <span>$x$</span> (where <span>$dp(x)$</span> is the derivative of <span>$p$</span> with respect to some background measure, in the Radon-Nikodym sense).  This is not the only way to define a tail probability. To be more specific, we can call it *meta-rarity* because it is a number indicating the rarity of the rarity. This definition has a number of advantages, such as allowing for the regulation of alerts that are generated according to <span>$p$</span>. Another advantage is that since the tail probabilities is a sort of p-value (as in statistical significance), tail probabilities derived from different distributions are directly comparable, even if the underlying data are vastly different.
+the probability of the measure <div>\(p\)</div> generating an event that is no more likely than <div>\(x\)</div> (where <div>\(dp(x)\)</div> is the derivative of <div>\(p\)</div> with respect to some background measure, in the Radon-Nikodym sense).  This is not the only way to define a tail probability. To be more specific, we can call it *meta-rarity* because it is a number indicating the rarity of the rarity. This definition has a number of advantages, such as allowing for the regulation of alerts that are generated according to <div>\(p\)</div>. Another advantage is that since the tail probabilities is a sort of p-value (as in statistical significance), tail probabilities derived from different distributions are directly comparable, even if the underlying data are vastly different.
 
-[PAPER: *EM Ferragut*, J Laska, RA Bridges, "A new, principled approach to anomaly detection," International Conference on Machine Learning and Applications (ICMLA), 2012.](http://erikferragut.me/files/ferragut2012new.pdf)
+[Paper: *EM Ferragut*, J Laska, RA Bridges, "A new, principled approach to anomaly detection," International Conference on Machine Learning and Applications (ICMLA), 2012.](http://erikferragut.me/files/ferragut2012new.pdf)
 
 ### Meta-Rarity Is Optimal ###
 
-The definition of tail probabilities given above has another advantage. If it is the case that your data are being generated according to </span>$p$</span>, then it is the best way to distinguish it from data that is generated uniformly over the same space. The mathematical details of this statement require a lot of explanation, which is being written up in a paper. One way to think of it is as a variation of the Neyman-Pearson Lemma where one of the probability distributions is replaced with a (not necessarily finite) measure. (Paper in progress)
+The definition of tail probabilities given above has another advantage. If it is the case that your data are being generated according to </div>\(p\)</div>, then it is the best way to distinguish it from data that is generated uniformly over the same space. The mathematical details of this statement require a lot of explanation, which is being written up in a paper. One way to think of it is as a variation of the Neyman-Pearson Lemma where one of the probability distributions is replaced with a (not necessarily finite) measure. (Paper in progress)
 
 ### Scalable Models ###
 
 To make this work deployable and useful, a way of building and updating models from streaming data was required. To do this, we focused on discretization of data (i.e.,
 binned data). In this application, the discrete distribution is being estimated from the event counts, and the events are being scored for anomalousness with respect to the estimate of the distribution. The tail probability definition applies in this case since we are looking at a discrete measure. There are two main questions to address to make this scale:
 
-1. _How do we deal with previously unseen events?_ This is the question of priors and smoothing. The typical solution, Cauchy Smoothing, is to add a "virtual" observation (or a fraction of an observation) to each value before computing probabilities. However, this method breaks down if the space of possible values is not known in advance. In that case, a typical prior to use would be a [dirichlet process prior](http://https://en.wikipedia.org/wiki/Dirichlet_process) (aka stick breaking). However, this approach is most appropriate when the prior is a collection of countably many point masses drawn from a continuous probability distribution. It could probably be made to work, but it would require assuming a "background" distribution on all possible values, which kind of brings us back to the original issue. Instead, we adopted a "hack" which is simple and mathematically unjustified, but solves the problem. In particular, we simply augment the count of the new observation first and then compute its tail probability. The result is a robust anomaly score that tempers the anomalousness of a never before seen event with some notion of how much overall data has been seen.
+1. _How do we deal with previously unseen events?_ This is the question of priors and smoothing. The typical solution, Cauchy Smoothing, is to add a "virtual" observation (or a fraction of an observation) to each value before computing probabilities. However, this method breaks down if the space of possible values is not known in advance. In that case, a typical prior to use would be a [Dirichlet process prior](http://https://en.wikipedia.org/wiki/Dirichlet_process) (aka stick breaking). However, this approach is most appropriate when the prior is a collection of countably many point masses drawn from a continuous probability distribution. It could probably be made to work, but it would require assuming a "background" distribution on all possible values, which kind of brings us back to the original issue. Instead, we adopted a "hack" which is simple and mathematically unjustified, but solves the problem. In particular, we simply augment the count of the new observation first and then compute its tail probability. The result is a robust anomaly score that tempers the anomalousness of a never before seen event with some notion of how much overall data has been seen.
 
 2. _How do we efficiently compute the tail probability?_ The simplest approach to computing the tail probability is to first sort the counts, and then sum up over all values not bigger than the one observed. However, then with each new observation, it may become necessary to move a value through the list to its new position in order to resort the list. By grouping events that have been observed the same number of times, this can be made much faster. Additional speed-ups were also explored and implemented (by other researchers).
 
 This has been implemented into the ORNL system called Situ, and has been deployed at multiple sites.
 
-[PATENT: *Erik M. Ferragut*, John R. Goodall, Michael D. Iannacone, Jason A. Laska, Lane T. Harrison, "Real-time detection and classification of anomalous events in streaming data," US Patent No. 9319421, April 19, 2016.](https://www.google.com/patents/US9319421)
+[Patent: *Erik M. Ferragut*, John R. Goodall, Michael D. Iannacone, Jason A. Laska, Lane T. Harrison, "Real-time detection and classification of anomalous events in streaming data," US Patent No. 9319421, April 19, 2016.](https://www.google.com/patents/US9319421)
 
-[PATENT: *Erik M Ferragut*, Jason A Laska, Robert A Bridges, "Detection of anomalous events," US Patent No. 9361463, June 7, 2016](https://www.google.com/patents/US9361463)
+[Patent: *Erik M Ferragut*, Jason A Laska, Robert A Bridges, "Detection of anomalous events," US Patent No. 9361463, June 7, 2016](https://www.google.com/patents/US9361463)
 
-[SITE: ORNL, "Project: Situ", October 2016](https://www.ornl.gov/division/projects/situ)
+[Web Site: ORNL, "Project: Situ", October 2016](https://www.ornl.gov/division/projects/situ)
 
 ### Importance Sampling ###
 
@@ -127,7 +127,7 @@ In more general distributions, computing tail probabilities has no closed form s
 
 ### Change Point Detection ###
 
-One interesting observation about tail probabilities is that they are approximately uniformly distributed, differing from uniform only when there are sets of positive measure that have constant probability density (i.e., level sets of positive probability). This observation enables a method to measure the extent to which the underlying distribution <span>$p$</span> actually matches how the data are generated. If the tail probabilities are uniformly distributed, then the assumption is supported. If the probabilities deviate from a uniform distribution, then the assumption must be rejected. We intend to integrate this into our anomaly detection system, Situ. (Paper in progress)
+One interesting observation about tail probabilities is that they are approximately uniformly distributed, differing from uniform only when there are sets of positive measure that have constant probability density (i.e., level sets of positive probability). This observation enables a method to measure the extent to which the underlying distribution <div>\(p\)</div> actually matches how the data are generated. If the tail probabilities are uniformly distributed, then the assumption is supported. If the probabilities deviate from a uniform distribution, then the assumption must be rejected. We intend to integrate this into our anomaly detection system, Situ. (Paper in progress)
 
 
 ## Game Theory ##
@@ -136,7 +136,7 @@ One interesting observation about tail probabilities is that they are approximat
 
 Cyber security lends itself to game-theoretic analysis because it is, foundationally, a contest between attacker and defender, or else between two agressors. Previous work that attempted to use game-theoretic analysis of cyber conflicts were overly simplistic so as to lend themselves to better analysis. One common simplification is that it is an iterated game where the players move simultaneously. In our work, we developed a game that is interesting because it is (1) potentially multiplayer, (2) based on turn-taking, (3) has incomplete information, and (4) involves probabilistic outcomes. These properties allow the game to be of much greater fidelity to real life conflicts. We then modeled each players knowledge of the game using Bayesian inference, and considered different strategies for making decisions based on the given information. The results confirmed some well known rules of thumb in cyber security, such as the importance of patching systems. We also discovered that with great uncertainty, the best strategy basically ignores what the opponents are doing. (This paper won the best paper award at its venue. Also of note, my co-authors were middle school and high school students.)
 
-[PAPER: *Erik M Ferragut*, Andrew C Brady, Ethan J Brady, Jacob M Ferragut, Nathan M Ferragut, Max C Wildgruber, "HackAttack: Game-Theoretic Analysis of Realistic Cyber Conflicts," Proceedings of the 11th Annual Cyber and Information Security Research Conference, April 2016.](http://erikferragut.me/files/ferragut2015hackattack.pdf)
+[Paper: *Erik M Ferragut*, Andrew C Brady, Ethan J Brady, Jacob M Ferragut, Nathan M Ferragut, Max C Wildgruber, "HackAttack: Game-Theoretic Analysis of Realistic Cyber Conflicts," Proceedings of the 11th Annual Cyber and Information Security Research Conference, April 2016.](http://erikferragut.me/files/ferragut2015hackattack.pdf)
 
 ### Strategies from Reinforcement Learning ###
 
@@ -149,7 +149,7 @@ The greatest difficulty in the cyber game strategy analysis was that the combina
 ### Monte Carlo Simulation ###
 Modeling and simulation are essential for predicting and verifying the behavior of fabricated quantum circuits, but existing simulation methods are either impractically costly or require an unrealistic simplification of error processes. We present a method of simulating noisy Clifford circuits that is both accurate and practical in experimentally relevant regimes. In particular, the cost is weakly exponential in the size and the degree of non-Cliffordness of the circuit. Our approach is based on the construction of exact representations of quantum channels as quasiprobability distributions over stabilizer operations, which are then sampled, simulated, and weighted to yield unbiased statistical estimates of circuit outputs and other observables. As a demonstration of these techniques, we simulate a Steane [[7,1,3]]-encoded logical operation with non-Clifford errors and compute its fault tolerance error threshold. We expect that the method presented here will enable studies of much larger and more realistic quantum circuits than was previously possible.
 
-[PAPER: Ryan S Bennink, Erik M Ferragut, Travis S Humble, Jason A Laska, James J Nutaro, Mark G Pleszkoch, Raphael C Pooser, "Unbiased simulation of near-Clifford quantum circuits," Physical Review A, 95:6, June 28, 2017.](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.95.062337)
+[Paper: Ryan S Bennink, Erik M Ferragut, Travis S Humble, Jason A Laska, James J Nutaro, Mark G Pleszkoch, Raphael C Pooser, "Unbiased simulation of near-Clifford quantum circuits," Physical Review A, 95:6, June 28, 2017.](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.95.062337)
 
 ### Decomposition of Quantum Processes into Mixtures of Cliffords ###
 
@@ -172,4 +172,8 @@ Other topics of interest have included:
 
 4. Active Learning. Carefully selecting examples for manual labeling in an attempt to achieve optimal model performance given a fixed number of labeled examples.
 
+5. Anomaly Detection in Graphs. Using statistics of subgraphs to find change-points in graph structure.
 
+6. Control Theory for Cyber. Analyzing finite energy and bounded attacks in the context of linear control systems, including the description of undetectable attacks.
+
+7. Divide and Conquer SVMs. Finding support vectors from quicker, smaller runs, and then combining them to make a final trained model.
