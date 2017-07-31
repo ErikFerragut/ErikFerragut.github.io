@@ -54,19 +54,21 @@ ORDEAL
 
 ### Defining Anomaly Detection ###
 
-Anomaly detection is the attempt to find outliers. On the one hand, you can think of it as finding points that are far from the concentrations of probability. On the other hand, you can think of it as finding points that have low probability density. I have adopted and argued for the second approach. In particular, given a probability measure $p$, we define a tail probability $T(x)$ of a point $x$ to be:
+Anomaly detection is the attempt to find outliers. On the one hand, you can think of it as finding points that are far from the concentrations of probability. On the other hand, you can think of it as finding points that have low probability density. I have adopted and argued for the second approach. In particular, given a probability measure <span>$p$</span>, we define a tail probability <span>$T(x)$</span> of a point <span>$x$</span> to be:
 
+<div>
 \[
     T(x) = p( \{ y \mid dp(y) \leq dp(x) \} ),
 \]
+</div>
 
-the probability of the measure $p$ generating an event that is no more likely than $x$ (where $dp(x)$ is the derivative of $p$ with respect to some background measure, in the Radon-Nikodym sense).  This is not the only way to define a tail probability. To be more specific, we can call it *meta-rarity* because it is a number indicating the rarity of the rarity. This definition has a number of advantages, such as allowing for the regulation of alerts that are generated according to $p$. Another advantage is that since the tail probabilities is a sort of p-value (as in statistical significance), tail probabilities derived from different distributions are directly comparable, even if the underlying data are vastly different.
+the probability of the measure <span>$p$</span> generating an event that is no more likely than <span>$x$</span> (where <span>$dp(x)$</span> is the derivative of <span>$p$</span> with respect to some background measure, in the Radon-Nikodym sense).  This is not the only way to define a tail probability. To be more specific, we can call it *meta-rarity* because it is a number indicating the rarity of the rarity. This definition has a number of advantages, such as allowing for the regulation of alerts that are generated according to <span>$p$</span>. Another advantage is that since the tail probabilities is a sort of p-value (as in statistical significance), tail probabilities derived from different distributions are directly comparable, even if the underlying data are vastly different.
 
 [PAPER: *EM Ferragut*, J Laska, RA Bridges, "A new, principled approach to anomaly detection," International Conference on Machine Learning and Applications (ICMLA), 2012.](http://erikferragut.me/files/ferragut2012new.pdf)
 
 ### Meta-Rarity Is Optimal ###
 
-The definition of tail probabilities given above has another advantage. If it is the case that your data are being generated according to $p$, then it is the best way to distinguish it from data that is generated uniformly over the same space. The mathematical details of this statement require a lot of explanation, which is being written up in a paper. One way to think of it is as a variation of the Neyman-Pearson Lemma where one of the probability distributions is replaced with a (not necessarily finite) measure. (Paper in progress.)
+The definition of tail probabilities given above has another advantage. If it is the case that your data are being generated according to </span>$p$</span>, then it is the best way to distinguish it from data that is generated uniformly over the same space. The mathematical details of this statement require a lot of explanation, which is being written up in a paper. One way to think of it is as a variation of the Neyman-Pearson Lemma where one of the probability distributions is replaced with a (not necessarily finite) measure. (Paper in progress.)
 
 ### Scalable Models ###
 
@@ -92,7 +94,7 @@ In more general distributions, computing tail probabilities has no closed form s
 
 ### Change Point Detection ###
 
-One interesting observation about tail probabilities is that they are approximately uniformly distributed, differing from uniform only when there are sets of positive measure that have constant probability density (i.e., level sets of positive probability). This observation enables a method to measure the extent to which the underlying distribution $p$ actually matches how the data are generated. If the tail probabilities are uniformly distributed, then the assumption is supported. If the probabilities deviate from a uniform distribution, then the assumption must be rejected. We intend to integrate this into our anomaly detection system, Situ. (Paper in progress.)
+One interesting observation about tail probabilities is that they are approximately uniformly distributed, differing from uniform only when there are sets of positive measure that have constant probability density (i.e., level sets of positive probability). This observation enables a method to measure the extent to which the underlying distribution <span>$p$</span> actually matches how the data are generated. If the tail probabilities are uniformly distributed, then the assumption is supported. If the probabilities deviate from a uniform distribution, then the assumption must be rejected. We intend to integrate this into our anomaly detection system, Situ. (Paper in progress.)
 
 
 ## Game Theory ##
@@ -104,7 +106,7 @@ Cyber security lends itself to game-theoretic analysis because it is, foundation
 
 [PAPER: *Erik M Ferragut*, Andrew C Brady, Ethan J Brady, Jacob M Ferragut, Nathan M Ferragut, Max C Wildgruber, "HackAttack: Game-Theoretic Analysis of Realistic Cyber Conflicts," Proceedings of the 11th Annual Cyber and Information Security Research Conference, April 2016.](http://erikferragut.me/files/ferragut2015hackattack.pdf)
 
-### Reinforcement-Learned Strategies ###
+### Strategies from Reinforcement Learning ###
 
 The greatest difficulty in the cyber game strategy analysis was that the combination of uncertainties was enormous, making the Bayesian inference burdensome. The next step in this work is to drop the explicit tracking of probabilities and develop a strategy optimization process based on reinforcement learning. (Ongoing)
 
