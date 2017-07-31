@@ -22,92 +22,55 @@ headline: I am a cyber security researcher at the Oak Ridge National Laboratory.
 </div>
 <div class="row-fluid">
 
-  <div class="span9"> <br /> <p> I am a Cyber Security Research
-     Scientist in the <a href="http://www.ioc.ornl.gov/">Cyber and
-     Information Security Research Group</a> within the <a
-      href="http://computing.ornl.gov">Computer and Computational
+  <div class="span9"> <br /> <p> I am a Senior Data Scientist in the
+     <a href="http://www.ioc.ornl.gov/">Cyber and Information Security
+     Research Group</a> within the <a
+     href="http://computing.ornl.gov">Computer and Computational
      Sciences Directorate</a> at the <a href="http://www.ornl.gov">Oak
-     Ridge National Laboratory</a>. I am interested in cyber security
-     and cyber-physical security.  Many of these systems can be made
-     more secure or dependable by augmenting them with intelligent
-     learning algorithms or with the results of more advanced data
-     analytics.  However, cyber systems have peculiarities that often
-     require new algorithms.  For example, much of the data collected
-     is computer-generated, discrete, and structured.  Also, many of
-     the underlying structures are or occur within networks.
-     Furthermore, these systems must operate in adversarial scenarios
-     where simple fault tolerance and reliability analyses cannot
-     properly account for the planning and intelligence of
-     adversaries.  I am interested in developing new algorithms that
-     exploit the particulars of cyber problems to improve defensive
-     and offensive capabilities.  My recent focus has been on
-    situation awareness from network sensor data and protection of
-    the power grid.</p>
+     Ridge National Laboratory</a>. I am interested in solving urgent,
+     real world problems by applying state-of-the-art machine learning
+     algorithms, inventing them when needed. In this group, most of
+     our applications are drawn from cyber security and cyber-physical
+     security.
+     However, cyber systems have peculiarities that often require new
+     algorithms.  For example, much of the data collected is
+     computer-generated, discrete, and structured.  Also, many of the
+     underlying structures are or occur within networks.  Furthermore,
+     these systems must operate in adversarial scenarios where simple
+     fault tolerance and reliability analyses cannot properly account
+     for the planning and intelligence of adversaries.  I am
+     interested in developing new algorithms that exploit the
+     particulars of cyber problems to improve defensive and offensive
+     capabilities.  My recent focus has been on situation awareness
+     from network sensor data and protection of the power grid.</p>
 
      <p>I have been at ORNL since 2009.  In addition to being a
     research scientist, I am also the team lead for
-    research-operations integration where I support the transfer of
-    research results to operational support.  Furthermore, I founded
-    and lead the <a href="/cyber-security-institute">Cyber Security
-    Institute</a>, an organized summer program for undergraduate and
-    graduate students interning in the CISR group doing cyber-related
-    research.  Previously, I worked as a cryptologic researcher for
-    over 10 years.  I earned my Ph.D. in Mathematics from the <a
-     href="http://math.lsa.umich.edu">University of Michigan, Ann
+    research-operations integration where I support the operational
+    deployment of research results. Previously, I worked as a
+    cryptologic researcher for over 10 years. I earned my Ph.D. in
+    Mathematics from the <a
+    href="http://math.lsa.umich.edu">University of Michigan, Ann
     Arbor</a> in 2003 (defending my thesis just hours before the <a
-     href="https://en.wikipedia.org/wiki/Northeast_Blackout_of_2003">Northeast
+    href="https://en.wikipedia.org/wiki/Northeast_Blackout_of_2003">Northeast
     blackout</a>).</p> </div>
   
-{% comment %}
-  Figure out if there is any news.
-    {% endcomment %}
-{% assign anynews = false %}
-{% for post in site.posts %}
-  {% if post.news == true %}
-  {% assign anynews = true %}
-  {% endif %}
-    {% endfor %}
-
-
-{% comment %} put list here of things like latest talk, publication,
-committee, travel, visible demo, github code release.  (Can we list
-    last 5 posts that have been tagged with 'news'?)  {% endcomment %}
-
-    {% comment %}
-
-{% if anynews == true %}  
-<div class="span9">
-<h4>Recent News</h4>
-<dl class='dl-horizontal'>
-  {% for post in site.posts %}
-  {% if post.news == true %}
-  <dt>{{ post.date | date_to_long_string }}</dt>
-  <dd><a href="{{ post.url }}">{{ post.title }}</a></dd>
-  {% endif %}
-  {% endfor %}
-</dl>
-</div>
-{% endif %}
-
-</div>
-{% endcomment %}
-
-
 
 <div class="row-fluid">
 <div class="span9">
   
-<h4>Research Interests</h4> <p> My research focus is in improving the
-security and dependability of network, computer, and cyber-physical
-systems through the development and application of data analytics and
-machine learning.  My main areas of recent research are anomaly
-detection and resilience analysis.  I am also interested in other
-areas of security, such as analyzing network sensor data and measuring
-the advantage information provides in an adversarial setting.  My
-favorite approach is probabilistic modeling because it captures the
-process of inference when beliefs are uncertain.  To avoid overtraining,
-I often use non-parametric Bayesian models.</p>
-</div> </div>
+<h4>Research Interests</h4> <p> My research focus is in the effective
+  use of machine learning methods to address real, operational
+  problems. Many amazing results have been achieved recently using
+  Deep Learning, but most of these are within the domains of images,
+  voice, and text. In many applications, such as cyber security, the
+  idiosyncrasies of the data render inappropriate the routine
+  application of advanced algorithms. I am especially interested in
+  determining the best analytics for addressing any given problem,
+  whether it be from Deep Learning, other machine learning methods,
+  optimization, probabilistic modeling, or game theory.
+</p> </div>
+  </div>
 
 <div class="row-fluid">
 <h4>Elsewhere on the Web</h4>
