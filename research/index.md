@@ -127,7 +127,7 @@ In more general distributions, computing tail probabilities has no closed form s
 
 ### Change Point Detection ###
 
-One interesting observation about tail probabilities is that they are approximately uniformly distributed, differing from uniform only when there are sets of positive measure that have constant probability density (i.e., level sets of positive probability). This observation enables a method to measure the extent to which the underlying distribution <div>\(p\)</div> actually matches how the data are generated. If the tail probabilities are uniformly distributed, then the assumption is supported. If the probabilities deviate from a uniform distribution, then the assumption must be rejected. We intend to integrate this into our anomaly detection system, Situ. (Paper in progress)
+One interesting observation about tail probabilities is that they are approximately uniformly distributed, differing from uniform only when there are sets of positive measure that have constant probability density (i.e., level sets of positive probability). This observation enables a method to measure the extent to which the underlying distribution <div>\\(p\\)</div> actually matches how the data are generated. If the tail probabilities are uniformly distributed, then the assumption is supported. If the probabilities deviate from a uniform distribution, then the assumption must be rejected. We intend to integrate this into our anomaly detection system, Situ. (Paper in progress)
 
 
 ## Game Theory ##
