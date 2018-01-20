@@ -3,7 +3,6 @@ title: Research Interests
 layout: default
 headline: Research interests in data science
 ---
-This page describes research I have done at ORNL since 2009. Many topics are ongoing, depending on availability of funding. Results have been communicated with the sponsor and, in some cases, published in the scientific literature.
 
 ## Deep Learning ##
 
