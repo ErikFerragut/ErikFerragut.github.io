@@ -17,12 +17,29 @@
 <script type="text/javascript"
 src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
+
+
+
+
+
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></sc\
 ript>
     <![endif]-->
-  </head>
+
+  <!-- Google Analytics Code-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45849143-1', 'erikferragut.me');
+  ga('send', 'pageview');
+</script>
+
+</head>
 
   <body>
 
@@ -35,7 +52,7 @@ v-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Research in probability modeling, anomaly detection, and other areas.
+          <a class="brand" href="#">Research interests in data science
 	  </a>
 <!--          <div class="nav-collapse collapse">
             <ul class="nav">
@@ -54,11 +71,7 @@ v-collapse">
     <ul class="unstyled">
   <li><a href="/">Erik M. Ferragut</a></li>
   <li><a href="/research/">Research</a></li>
-  <li><a href="/ferragut_cv.pdf">Curriculum Vitae</a></li>
-  <li><a href="/cyber-security-institute">Student
-  Opportunities</a></li>
-  <li><a href="/posts">News and Posts</a></li>
-  <li><a href="/misc/">Miscellaneous</a></li>
+  <li><a href="/ferragut_cv.pdf">Curriculum Vitae (pdf)</a></li>
   <li>See also:<br />&nbsp;&nbsp;&nbsp;<a href="http://www.linkedin.com/pub/erik-ferragut/14/60a/63a"
   title="Erik M. Ferragut on LinkedIn">LinkedIn</i></a>
   <a href="http://github.com/?erikferragut" title="Erik M. Ferragut on
@@ -68,25 +81,194 @@ v-collapse">
 
   </div>
   <div class= "span9" >
-    <p>This is a great time to be working in machine learning and cyber security.  There are a lot of important operational problems in cyber security that could benefit from mathematical reasoning and machine learning approaches, except that they are not yet sufficiently well posed.  A good way to pose the problem will lead to useful solutions and new theory.</p>
+    <h2 id="deep-learning">Deep Learning</h2>
 
-<p>I like to draw on methods from probabilistic modeling, Bayesian inference, and machine learning.  It's also fun to be able to draw on pure and applied mathematics, such as graph theory, combinatorial commutative algebra, representation theory, group theory, and computational topology.  The two great benefits of doing this are (1) the application of new, enriching methods to existing problems, and (2) the re-invigoration of a theoretical subject with operationally motivated problems.   Here's a few areas I've been working on.  See my CV (linked to in the sidebar) for references to papers in these areas.</p>
+<h3 id="sequence-classification-using-deep-learning">Sequence Classification using Deep Learning</h3>
 
-<h3>Anomaly Detection</h3>
+<p>A Domain Generation Algorithm (DGA) is a pseudorandom algorithm for producing domains that are then used by malware for command and control. Previous methods have demonstrated an ability to use examples of DGA domains to determine if a new domain was created by a DGA. While useful, the more relevant question is whether existing DGA examples can be used to generalize to {\em previously unseen} DGA domains.</p>
 
-<p>What is an anomaly?  This is as much a philosophical question as a machine learning question.  My view is that one well founded way to define anomalies is as unusual events.  (Another good approach would be in terms of deviations from a specificaiton.)  A lot of research has defined anomalies in terms of the rarity of an event.  However, sampling from a collection of one million equally likely events, it is a guarantee that the result will have probability one in a million.  Is every event then anomalous?  In my previous work, I've argued that the anomalousness of an event must take into account the entire distribution and give a (p)-value of the probability of the event.  This can be generalized to discrete, continuous, and hybrid distributions.  It can be shown that this perspective has important operational benefits in terms of being able to regulate false positives and compare between different anomaly detectors.</p>
+<p>To test the ability to detect DGA domains, we created a new data set comprised of both Alexa domains, which are assumed to be benign, and 21 classes of DGA domains reported in the community. Generalizability is tested by measuring accuracy on a class left out during training. We compare baseline methods derived from the literature to a number of new methods that augment the data set in different ways. It is expected that larger data sets lead to improved accuracy, but we have also shown that transfer learning is improved. Data sets are enlarged by:
+    1. using reverse engineered DGAs to construct actual, possible domains, 
+    2. perturbing a vector space embedding of the domain and reversing it into a new, similar domain, and/or
+    3. generating new domains from a language model trained on given class.</p>
 
-<h3>Large Data Machine Learning</h3>
+<p>We found that more data from the first source helps, but its value is difficult to ascertain since often when there is a known generative algorithm, there is very little data from collection. The perturbation of embedding (or of internal state) appears to often be deleterious, though it does often help. However, further analysis of the improvements seem to show no discernible pattern of performance enhancement. Data created using language modeling of domains showed no real improvement. This may be bacause it is simply a byproduct of the original data, but we hypothesize that an important factor is the inherently non-linguistic nature of domains generated by the known algorithms.</p>
 
-<p>Machine learning algorithms tend to give a similar answer for subsets of data as they give for the entire data set, although with less precision.  However, the algorithms run faster on smaller data sets.  I've looked into ways of using classifiers learned on subsets to estimate or create a classifier for the whole data set.  In the case of Support Vector Machines, there are special properties of support vectors that help facilitate this.  This can be viewed as an inference problem: is a vector a support vector for the whole data set given the results of the subset classifiers?</p>
+<p>We intend to revisit this work in the context of a one-class classifier, where the data augmentation of benign domains may be more appropriate. (In progress)</p>
 
-<h3>Cyber Physical Security</h3>
+<h3 id="multiscale-architectures-for-deep-learning">Multiscale Architectures for Deep Learning</h3>
 
-<p>Control theory provides a large body of knowledge on creating and analyzing control systems in the presence of noise, failures, and other changes.  To what extent do targeted intelligent attacks require the development of new, improved methods of analysis?  One difference is in distinguishing between random failures and targeted attacks.  To some extent, robust control theory addresses this issue when it considers worst-case analysis.  Moreover, if the defender and the attacker are both free to make tactical decisions, then a game-theoretic analysis will play an important role.  Concepts of resilience based on controllability and observability can be viewed in terms of the algebraic and combinatorial properties of the matrices that define the (linear) control system.</p>
+<p>One standard Deep Learning approach to classifying sequences of discrete symbols is to train an embedding of the symbols into vectors together with a Long Short-Term Memory (LSTM) classification model. This approach was applied to data regarding system call patterns in both malicious and benign data (on both Linux and Windows). Unlike natural languages where related concepts are proximal in the text, computer traces may have large and irrelevant segments between the related portions. These gaps place a greater demand on the memory within an LSTM. Alternative methods for improving long term effects were explored in the context of sequence classification.</p>
 
-<h3>Cyber Security Analysis</h3>
+<p>The approaches considered can be described as multiscale architectures. These are architectures where the lowest layer steps at a faster rate than the next layer up, which is faster than the layer above that. A number of multiscale architectures have been proposed in the literature. We focused on using an interpolated layer that uses a secondary input to produce an output that is interpolated between the input and output of an original layer. This can be thought of as taking partial steps. The control that determines the stepping can come from (a) the same input as the layer uses, (b) one layer further down, or (c) the original input sequence. Method (a) is the one that appears most in the literature, but we found that the other two methods were more effective on our cyber data, with (b) being the marginally best solution. (Paper in progress)</p>
 
-<p>Since cyber conflicts involve two or more adversarial parties, it makes sense to view the conflict in terms of a (mathematical) game.  However, the theory to do so is still very elementary and not appropriate for realistic scenarios.  I have developed a framework for representing "the game", including the status of the board and the available moves.  Additional research is required to build a board based on real-world assets and data, and to develop the game theory appropriate to this application.</p>
+<h3 id="manifold-learning">Manifold Learning</h3>
+
+<p>One challenge with understanding unlabeled data is that any correlations or constraints between the features can effectively force the probability mass of the data distribution to be concentrated on a lower-dimensional locus of points that may be complex and non-linear. The attempt to describe this locus is called manifold learning and adopts (as motivation) the idea of a manifold from topology, where a manifold is a collection of locally linear (i.e., Euclidean) patches that are connected by transformations in their overlapping areas.</p>
+
+<p>Our focus has been on improved manifold learning for anomaly detection. In particular, what are the probabilistic assumptiong inherent in a given manifold learning approach? A recent development called Variational AutoEncoding (VAE) attempts to force the representation of the data to follow a normal distribution. This approach has both theoretical and application shortcomings. Other approaches attempt to maintain the local density from the input space; these may be more promising.</p>
+
+<p>In the end, the best distribution on the representation space will depend on the learning task. Development of an empirically effective and operationally deployable manifold-learning-based anomaly detector is underway.</p>
+
+<h3 id="learning-from-simulation-data">Learning from Simulation Data</h3>
+
+<p>ORNL has extensive expertise in developing and validating complex simulations. Typically, these simulations are computaitonally intensive and depend on a large number of parameters. As a result, exhaustive sampling of parameter settings is intractable. Inverse problems, in which parameters are sought to produce a particular simulation result, are especially difficult to address. We propose to use Deep Learning to attempt to learn a models for the relationships between parameters, simulation states, and qualitative results of the simulations. Such models could be used to accelerate simulations, reduce the amount of expert time required to qualitatively analyze results, yield better simulation data compression algorithms, and contribute to solving inverse problems. Ideally, experts could then use these tools to accelerate their scientific process. This work is still in a proposal stage.</p>
+
+<h2 id="cyber-physical-attack-detection-cpad">Cyber-Physical Attack Detection (CPAD)</h2>
+
+<h3 id="power-grid-analysis">Power Grid Analysis</h3>
+
+<p>In a physical system, such as a power grid, there are often many sensors with views into the same physical state. Inevitably, these sensors must then have some dependencies. In the case of power grid measurements, current and voltage are related by Kirchhoff’s Laws. In this research we attempt to learn those relationships using machine learning (neural networks) and then use that model to detect data that has been tampered with, either because of component failure or because of malicious intent. A demonstration of the detection was developed. The trained algorithm was able to improve detection of replay attacks by a factor of 30 or more on both simulated and real data.</p>
+
+<p><a href="http://erikferragut.me/files/ttp-cpad-4-2017May.pptx">PowerPoint Slides: <em>Erik M. Ferragut</em>, Jason Laska, “Cyber Physical Attack Detection,” Presentation, May 2017.</a></p>
+
+<h3 id="validation-across-thousands-of-simulated-systems">Validation Across Thousands of Simulated Systems</h3>
+
+<p>Work is ongoing to apply CPAD to a range of thousands of simulated control systems. This analysis will allow us to (1) validate the learned physical laws, and (2) identify properties of systems that make CPAD especially well suited or poorly suited.</p>
+
+<h3 id="applications-to-industrial-plants-vehicles-or-other-systems">Applications to Industrial Plants, Vehicles, or Other Systems</h3>
+
+<p>CPAD should apply to any system with multiple views into the same physical space. We are interested in pursuing pilots to explore these applications on real, operationally relevant data.</p>
+
+<h2 id="data-wrangling">Data Wrangling</h2>
+
+<h3 id="field-matching-medical-data">Field Matching (Medical Data)</h3>
+
+<p>Working with medical provider and claims data, we were presented with the problem of having multiple similar databases where the field data matches but the field names do not. For example, one database might have a field named “doctor” that matches the field named “provider” in another database. Some methods exist that attempt to use the field names themselves. While these methods are promising, they require extensive domain knowledge. Furthermore, we found situations where the data stored in a field did not match the name of the field, so using the field names would have led to incorrect matches.</p>
+
+<p>Our approach was to create a generate non-parametric probabilistic model for each field. We can then compute the probability of the data in each field separately and in the two fields as one. (To do this correctly, it is important that no data is scored according to a model whose parameters it influenced.) It is then possible to apply Bayes’s Rule to compare the hypothesis that one model describes both fields to the hypothesis that the fields are described by two different models.</p>
+
+<p>To match two databases, a number of types of models are constructed for each field of each database, and then the rule is applied to produce match scores between all possible matches. In a proof-of-concept analysis, matches were found that seemed incorrect because of the given field names but that were in fact correct due to the actual usage of the fields.</p>
+
+<p><a href="http://erikferragut.me/files/ferragut2015nonparametric.pdf">Paper: <em>Erik Ferragut</em>, Jason Laska, “Nonparametric Bayesian Modeling for Automated Database Schema Matching,” International Conference on Machine Learning and Applications, December 2015.</a></p>
+
+<h3 id="data-pre-processing-ordeal">Data Pre-Processing (ORDEAL)</h3>
+
+<p>As a side project, I am working on a more principled way to pre-process data for machine learning efforts. The basic idea is that pre-processing can be viewed as having three parts:</p>
+
+<ol>
+  <li>
+    <p>Make. Given some hierarchical data, including directory paths and JSON/YAML/HDF5 files, create an iterator that maps individual records into named tuples.</p>
+  </li>
+  <li>
+    <p>Map. Construct a map that creates or replaces fields in each named tuple based on the other fields in the tuple.</p>
+  </li>
+  <li>
+    <p>Reduce. Create a process that combines individual tuples into new tuples, such as taking the maximum in one field across those with the same values in other fields.</p>
+  </li>
+  <li>
+    <p>View. Given the resulting data, construct a view into that data that looks like either a dictionary (i.e., key-value pairs) or a matrix, possibly with named rows and columns.</p>
+  </li>
+</ol>
+
+<p>The hope is to have a simple syntax for the various steps to enable a wide range of typical operations without the full complexity of general regular expressions. This work is ongoing.</p>
+
+<h2 id="anomaly-detection">Anomaly Detection</h2>
+
+<h3 id="defining-anomaly-detection">Defining Anomaly Detection</h3>
+
+<p>Anomaly detection is the attempt to find outliers. On the one hand, you can think of it as finding points that are far from the concentrations of probability. On the other hand, you can think of it as finding points that have low probability density. I have adopted and argued for the second approach. In particular, given a probability measure \(p\), we define a tail probability \(T(x)\) of a point \(x\) to be:</p>
+
+<div>
+\[
+    T(x) = p( \{ y \mid dp(y) \leq dp(x) \} ),
+\]
+</div>
+
+<p>the probability of the measure \(p\) generating an event that is no more likely than \(x\) (where \(dp(x)\) is the derivative of \(p\) with respect to some background measure, in the Radon-Nikodym sense).  This is not the only way to define a tail probability. To be more specific, we can call it <em>meta-rarity</em> because it is a number indicating the rarity of the rarity. This definition has a number of advantages, such as allowing for the regulation of alerts that are generated according to \(p\). Another advantage is that since the tail probabilities is a sort of p-value (as in statistical significance), tail probabilities derived from different distributions are directly comparable, even if the underlying data are vastly different.</p>
+
+<p><a href="http://erikferragut.me/files/ferragut2012new.pdf">Paper: <em>EM Ferragut</em>, J Laska, RA Bridges, “A new, principled approach to anomaly detection,” International Conference on Machine Learning and Applications (ICMLA), 2012.</a></p>
+
+<h3 id="meta-rarity-is-optimal">Meta-Rarity Is Optimal</h3>
+
+<p>The definition of tail probabilities given above has another advantage. If it is the case that your data are being generated according to \(p\), then it is the best way to distinguish it from data that is generated uniformly over the same space. The mathematical details of this statement require a lot of explanation, which is being written up in a paper. One way to think of it is as a variation of the Neyman-Pearson Lemma where one of the probability distributions is replaced with a (not necessarily finite) measure. (Paper in progress)</p>
+
+<h3 id="scalable-models">Scalable Models</h3>
+
+<p>To make this work deployable and useful, a way of building and updating models from streaming data was required. To do this, we focused on discretization of data (i.e.,
+binned data). In this application, the discrete distribution is being estimated from the event counts, and the events are being scored for anomalousness with respect to the estimate of the distribution. The tail probability definition applies in this case since we are looking at a discrete measure. There are two main questions to address to make this scale:</p>
+
+<ol>
+  <li>
+    <p><em>How do we deal with previously unseen events?</em> This is the question of priors and smoothing. The typical solution, Cauchy Smoothing, is to add a “virtual” observation (or a fraction of an observation) to each value before computing probabilities. However, this method breaks down if the space of possible values is not known in advance. In that case, a typical prior to use would be a <a href="http://https://en.wikipedia.org/wiki/Dirichlet_process">Dirichlet process prior</a> (aka stick breaking). However, this approach is most appropriate when the prior is a collection of countably many point masses drawn from a continuous probability distribution. It could probably be made to work, but it would require assuming a “background” distribution on all possible values, which kind of brings us back to the original issue. Instead, we adopted a “hack” which is simple and mathematically unjustified, but solves the problem. In particular, we simply augment the count of the new observation first and then compute its tail probability. The result is a robust anomaly score that tempers the anomalousness of a never before seen event with some notion of how much overall data has been seen.</p>
+  </li>
+  <li>
+    <p><em>How do we efficiently compute the tail probability?</em> The simplest approach to computing the tail probability is to first sort the counts, and then sum up over all values not bigger than the one observed. However, then with each new observation, it may become necessary to move a value through the list to its new position in order to resort the list. By grouping events that have been observed the same number of times, this can be made much faster. Additional speed-ups were also explored and implemented (by other researchers).</p>
+  </li>
+</ol>
+
+<p>This has been implemented into the ORNL system called Situ, and has been deployed at multiple sites.</p>
+
+<p><a href="https://www.google.com/patents/US9319421">Patent: <em>Erik M. Ferragut</em>, John R. Goodall, Michael D. Iannacone, Jason A. Laska, Lane T. Harrison, “Real-time detection and classification of anomalous events in streaming data,” US Patent No. 9319421, April 19, 2016.</a></p>
+
+<p><a href="https://www.google.com/patents/US9361463">Patent: <em>Erik M Ferragut</em>, Jason A Laska, Robert A Bridges, “Detection of anomalous events,” US Patent No. 9361463, June 7, 2016</a></p>
+
+<p><a href="https://www.ornl.gov/division/projects/situ">Web Site: ORNL, “Project: Situ”, October 2016</a></p>
+
+<h3 id="importance-sampling">Importance Sampling</h3>
+
+<p>For discrete distributions, computing tail probabilities is a matter of counting events that are as rare or more rare. For continuous distributions, we lose the computational benefits of discretization. In particular, no two events can be expected to have the same probability. For most realistic (i.e., multivariate) distributions, even simple ones, the tail probabilities are hard to compute. The main exceptions are the multivariate normal distribution, whose tail probabilities are described using a Chi-squared distribution, and a vector of independent and identically distribution exponential variables, whose tail probabilities are described using a Gamma distribution. (We have yet to find a reference for this latter result, but it was likely already known.)</p>
+
+<p>In more general distributions, computing tail probabilities has no closed form solution. Operationally, this presents a huge difficulty. Given an observation, how can we estimate its tail probability. By looking at methods that combine Monte Carlo and importance sampling with regressions, we found we were able to improve the computational cost of estimating tail probabilities by many orders of magnitude. (Paper in progress)</p>
+
+<h3 id="change-point-detection">Change Point Detection</h3>
+
+<p>One interesting observation about tail probabilities is that they are approximately uniformly distributed, differing from uniform only when there are sets of positive measure that have constant probability density (i.e., level sets of positive probability). This observation enables a method to measure the extent to which the underlying distribution \(p\) actually matches how the data are generated. If the tail probabilities are uniformly distributed, then the assumption is supported. If the probabilities deviate from a uniform distribution, then the assumption must be rejected. We intend to integrate this into our anomaly detection system, Situ. (Paper in progress)</p>
+
+<h2 id="game-theory">Game Theory</h2>
+
+<h3 id="cyber-game-strategy-analysis">Cyber Game Strategy Analysis</h3>
+
+<p>Cyber security lends itself to game-theoretic analysis because it is, foundationally, a contest between attacker and defender, or else between two agressors. Previous work that attempted to use game-theoretic analysis of cyber conflicts were overly simplistic so as to lend themselves to better analysis. One common simplification is that it is an iterated game where the players move simultaneously. In our work, we developed a game that is interesting because it is (1) potentially multiplayer, (2) based on turn-taking, (3) has incomplete information, and (4) involves probabilistic outcomes. These properties allow the game to be of much greater fidelity to real life conflicts. We then modeled each players knowledge of the game using Bayesian inference, and considered different strategies for making decisions based on the given information. The results confirmed some well known rules of thumb in cyber security, such as the importance of patching systems. We also discovered that with great uncertainty, the best strategy basically ignores what the opponents are doing. (This paper won the best paper award at its venue. Also of note, my co-authors were middle school and high school students.)</p>
+
+<p><a href="http://erikferragut.me/files/ferragut2015hackattack.pdf">Paper: <em>Erik M Ferragut</em>, Andrew C Brady, Ethan J Brady, Jacob M Ferragut, Nathan M Ferragut, Max C Wildgruber, “HackAttack: Game-Theoretic Analysis of Realistic Cyber Conflicts,” Proceedings of the 11th Annual Cyber and Information Security Research Conference, April 2016.</a></p>
+
+<h3 id="strategies-from-reinforcement-learning">Strategies from Reinforcement Learning</h3>
+
+<p>The greatest difficulty in the cyber game strategy analysis was that the combination of uncertainties was enormous, making the Bayesian inference burdensome. The next step in this work is to drop the explicit tracking of probabilities and develop a strategy optimization process based on reinforcement learning. (Ongoing)</p>
+
+<h2 id="quantum-computation">Quantum Computation</h2>
+
+<h3 id="monte-carlo-simulation">Monte Carlo Simulation</h3>
+<p>Modeling and simulation are essential for predicting and verifying the behavior of fabricated quantum circuits, but existing simulation methods are either impractically costly or require an unrealistic simplification of error processes. We present a method of simulating noisy Clifford circuits that is both accurate and practical in experimentally relevant regimes. In particular, the cost is weakly exponential in the size and the degree of non-Cliffordness of the circuit. Our approach is based on the construction of exact representations of quantum channels as quasiprobability distributions over stabilizer operations, which are then sampled, simulated, and weighted to yield unbiased statistical estimates of circuit outputs and other observables. As a demonstration of these techniques, we simulate a Steane [[7,1,3]]-encoded logical operation with non-Clifford errors and compute its fault tolerance error threshold. We expect that the method presented here will enable studies of much larger and more realistic quantum circuits than was previously possible.</p>
+
+<p><a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.95.062337">Paper: Ryan S Bennink, Erik M Ferragut, Travis S Humble, Jason A Laska, James J Nutaro, Mark G Pleszkoch, Raphael C Pooser, “Unbiased simulation of near-Clifford quantum circuits,” Physical Review A, 95:6, June 28, 2017.</a></p>
+
+<h3 id="decomposition-of-quantum-processes-into-mixtures-of-cliffords">Decomposition of Quantum Processes into Mixtures of Cliffords</h3>
+
+<p>The simulations above depend on having a description of a quantum process (or each step in a multi-step quantum process) as a mixture of Cliffords. Going from an arbitrary process matrix to a mixture of Cliffords is in general still intractable. However, for problems in one or two qubits, it can be done using a standard linear programming solution. For three qubits, I developed an algorithm to decompose sparse process matrices. Although it will not work in general, it was able to decompose a control-control-not. The decompositions can either be optimized to minimize the negativity of the distribution (best for Monte Carlo simulations) or the number of terms used (best for exhaustive summations). The former is very quick since it is an L1 optimization, but the latter, being a discrete optimization problem, tends to be much slower. (Paper in progress)</p>
+
+<h3 id="special-case-simulations">Special Case Simulations</h3>
+
+<p>Clifford simulations are a special case simulation. I am investigating other special cases, based on Cliffords, that are well suited to simulation.</p>
+
+<h2 id="other-topics">Other Topics</h2>
+
+<p>Other topics of interest have included:</p>
+
+<ol>
+  <li>
+    <p>Compressed sensing. Using finite geometry to construct a maximally incoherent basis.</p>
+  </li>
+  <li>
+    <p>Term matching. Propagating match information across a term match to perform within-match logic inspired by Sudoku solvers.</p>
+  </li>
+  <li>
+    <p>Streaming Fountain Code. Using algorithms for solving banded linear systems to construct a drop-out error correction code appropriate for streaming data.</p>
+  </li>
+  <li>
+    <p>Active Learning. Carefully selecting examples for manual labeling in an attempt to achieve optimal model performance given a fixed number of labeled examples.</p>
+  </li>
+  <li>
+    <p>Anomaly Detection in Graphs. Using statistics of subgraphs to find change-points in graph structure.</p>
+  </li>
+  <li>
+    <p>Control Theory for Cyber. Analyzing finite energy and bounded attacks in the context of linear control systems, including the description of undetectable attacks.</p>
+  </li>
+  <li>
+    <p>Divide and Conquer SVMs. Finding support vectors from quicker, smaller runs, and then combining them to make a final trained model.</p>
+  </li>
+</ol>
 
   </div>
 </div>
